@@ -1,18 +1,22 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateName } from "./userSlice";
 
-function CreateUser({ setCustomerName }) {
+const CreateUser = () => {
     const [userName, setUserName] = useState("");
-    const navigate = useNavigate();
 
-    function handleSubmit(e) {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         if (!userName) return;
 
-        setCustomerName(userName);
+        dispatch(updateName(userName));
         navigate("/menu");
-    }
+    };
 
     return (
         <form onSubmit={handleSubmit}>
@@ -35,6 +39,6 @@ function CreateUser({ setCustomerName }) {
             )}
         </form>
     );
-}
+};
 
 export default CreateUser;
