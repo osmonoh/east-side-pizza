@@ -5,7 +5,9 @@ const Footer = () => {
                 <span>x pizzas</span>
                 <span>$x.x</span>
             </div>
-            <div>&copy; 2025 by DCH</div>
+            <div>
+                DCH <span className="align-[1px]">&copy;</span> 2025
+            </div>
             <button className="uppercase">Open cart &rarr;</button>
         </footer>
     );
