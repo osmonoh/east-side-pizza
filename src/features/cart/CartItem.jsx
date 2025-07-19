@@ -1,3 +1,5 @@
+import ButtonRemove from "../../ui/interactive/ButtonRemove";
+import QuantityControls from "../../ui/interactive/QuantityControls";
 import { formatCurrency } from "../../utils/helpers";
 
 const CartItem = ({ item }) => {
@@ -12,6 +14,12 @@ const CartItem = ({ item }) => {
                 <p className="text-sm font-bold">
                     {formatCurrency(totalPrice)}
                 </p>
+
+                <QuantityControls pizzaId={pizzaId}>
+                    {quantity}
+                </QuantityControls>
+
+                <ButtonRemove pizzaId={pizzaId} />
             </div>
         </li>
     );

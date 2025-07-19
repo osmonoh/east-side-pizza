@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateName } from "./userSlice";
-import Button from "../../ui/Button";
+import ButtonCustom from "../../ui/interactive/ButtonCustom";
 
 const CreateUser = () => {
     const [userName, setUserName] = useState("");
@@ -35,9 +35,9 @@ const CreateUser = () => {
 
             {userName !== "" && (
                 <div>
-                    <Button type="primary" size="big">
+                    <ButtonCustom type="primary" variant="big">
                         Start ordering
-                    </Button>
+                    </ButtonCustom>
                 </div>
             )}
         </form>

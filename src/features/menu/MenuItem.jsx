@@ -1,11 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, getCurrentPizzaQuantity } from "../cart/cartSlice";
-import Button from "../../ui/Button";
+import ButtonCustom from "../../ui/interactive/ButtonCustom";
+import ButtonRemove from "../../ui/interactive/ButtonRemove";
+import QuantityControls from "../../ui/interactive/QuantityControls";
 
 const MenuItem = ({ pizza }) => {
     const dispatch = useDispatch();
 
     const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+
     const currentPizzaQuantity = useSelector(getCurrentPizzaQuantity(id));
     const isInCart = currentPizzaQuantity > 0;
 
@@ -41,14 +44,23 @@ const MenuItem = ({ pizza }) => {
                         </p>
                     )}
 
+                    {isInCart && (
+                        <div className="flex items-center gap-3 sm:gap-8">
+                            <QuantityControls pizzaId={id}>
+                                {currentPizzaQuantity}
+                            </QuantityControls>
+                            <ButtonRemove pizzaId={id} />
+                        </div>
+                    )}
+
                     {!isInCart && !soldOut && (
-                        <Button
+                        <ButtonCustom
                             type="primary"
-                            size="small"
+                            variant="small"
                             onClick={handleAddToCart}
                         >
                             Add to cart
-                        </Button>
+                        </ButtonCustom>
                     )}
                 </div>
             </div>

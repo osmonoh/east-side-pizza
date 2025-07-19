@@ -1,12 +1,22 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { getCart } from "./cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { getCart, clearCart } from "./cartSlice";
 import { getUserName } from "../user/userSlice";
 import CartItem from "./CartItem";
+import EmptyCart from "./EmptyCart";
+import ButtonCustom from "../../ui/interactive/ButtonCustom";
 
 const Cart = () => {
+    const dispatch = useDispatch();
+
     const cart = useSelector(getCart);
     const userName = useSelector(getUserName);
+
+    const handleClearCart = () => {
+        dispatch(clearCart());
+    };
+
+    if (!cart.length) return <EmptyCart />;
 
     console.log(cart);
     return (
@@ -22,6 +32,19 @@ const Cart = () => {
                     <CartItem key={pizza.pizzaId} item={pizza} />
                 ))}
             </ul>
+
+            <div className="mt-6 space-x-2 text-center">
+                <ButtonCustom to="/order/new" type="primary" variant="big">
+                    Order pizzas
+                </ButtonCustom>
+                <ButtonCustom
+                    type="secondary"
+                    variant="big"
+                    onClick={handleClearCart}
+                >
+                    Clear cart
+                </ButtonCustom>
+            </div>
         </div>
     );
 };
