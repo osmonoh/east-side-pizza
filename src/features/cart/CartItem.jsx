@@ -1,6 +1,6 @@
+import { formatCurrency } from "../../utils/helpers";
 import ButtonRemove from "../../ui/interactive/ButtonRemove";
 import QuantityControls from "../../ui/interactive/QuantityControls";
-import { formatCurrency } from "../../utils/helpers";
 
 const CartItem = ({ item }) => {
     const { pizzaId, name, quantity, totalPrice } = item;

@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import LinkMenu from "../../ui/interactive/LinkMenu";
 
 const EmptyCart = () => {
     return (
         <div className="px-4 py-3">
-            <Link to="/menu">&larr; Back to menu</Link>
+            <LinkMenu />
 
             <p className="mt-7 text-center font-semibold">
                 Your cart is empty. Start adding some pizzas :)

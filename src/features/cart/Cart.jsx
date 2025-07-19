@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart, clearCart } from "./cartSlice";
 import { getUserName } from "../user/userSlice";
 import CartItem from "./CartItem";
 import EmptyCart from "./EmptyCart";
 import ButtonCustom from "../../ui/interactive/ButtonCustom";
+import LinkMenu from "../../ui/interactive/LinkMenu";
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const Cart = () => {
     console.log(cart);
     return (
         <div className="px-4 py-3">
-            <Link to="/menu">&larr; Back to menu</Link>
+            <LinkMenu />
 
             <h2 className="mt-7 text-xl font-semibold">
                 Your cart, {userName}
@@ -37,6 +37,7 @@ const Cart = () => {
                 <ButtonCustom to="/order/new" type="primary" variant="big">
                     Order pizzas
                 </ButtonCustom>
+
                 <ButtonCustom
                     type="secondary"
                     variant="big"

@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, getCurrentPizzaQuantity } from "../cart/cartSlice";
+import { formatCurrency } from "../../utils/helpers";
 import ButtonCustom from "../../ui/interactive/ButtonCustom";
 import ButtonRemove from "../../ui/interactive/ButtonRemove";
 import QuantityControls from "../../ui/interactive/QuantityControls";
@@ -37,7 +38,7 @@ const MenuItem = ({ pizza }) => {
                 </p>
                 <div className="mt-auto flex items-center justify-between">
                     {!soldOut ? (
-                        <p className="text-sm">{unitPrice}</p>
+                        <p className="text-sm">{formatCurrency(unitPrice)}</p>
                     ) : (
                         <p className="text-sm font-medium uppercase text-stone-500">
                             Sold out
@@ -49,6 +50,7 @@ const MenuItem = ({ pizza }) => {
                             <QuantityControls pizzaId={id}>
                                 {currentPizzaQuantity}
                             </QuantityControls>
+
                             <ButtonRemove pizzaId={id} />
                         </div>
                     )}

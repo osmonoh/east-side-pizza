@@ -15,7 +15,12 @@ const CartOverview = () => {
                 <span>${totalPrice}</span>
             </div>
 
-            <Link to="/cart">Open cart &rarr;</Link>
+            <Link
+                to="/cart"
+                className="animate-blink transition-colors duration-300 hover:animate-none hover:text-yellow-400"
+            >
+                Open cart <span className="align-[2px]">&rarr;</span>
+            </Link>
         </div>
     );
 };

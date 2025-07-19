@@ -1,4 +1,4 @@
-export const getStyles = (type = "primary", variant = "big") => {
+export const getButtonStyles = (type = "primary", variant = "big") => {
     const baseStyles =
         "inline-block rounded-full font-semibold uppercase tracking-wide text-sm transition-colors duration-300 focus:outline-none focus:ring  focus:ring-offset-2 disabled:cursor-not-allowed";
     const typeStyles = {
@@ -15,4 +15,8 @@ export const getStyles = (type = "primary", variant = "big") => {
     };
 
     return `${baseStyles} ${typeStyles[type]} ${variantStyles[variant]}`;
+};
+
+export const getLinkStyles = () => {
+    return "text-sm text-blue-500 hover:text-blue-600 hover:underline";
 };

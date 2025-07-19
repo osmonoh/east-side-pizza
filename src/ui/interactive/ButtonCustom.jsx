@@ -1,7 +1,7 @@
-import { getStyles } from "./styles";
+import { getButtonStyles } from "./styles";
 
 const ButtonCustom = ({ children, type, variant, onClick }) => {
-    const buttonStyles = getStyles(type, variant);
+    const buttonStyles = getButtonStyles(type, variant);
 
     return (
         <button className={buttonStyles} onClick={onClick}>
